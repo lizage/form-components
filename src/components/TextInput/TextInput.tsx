@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
+import GlobalStyle from "../../styles/global";
 import { ITextInput, defaultProps } from "./interface";
 import ClearButton from "../utils/ClearButton/ClearButton";
 import { TextInputWrapStyled, TextInputStyled } from "./styles";
@@ -12,6 +13,7 @@ export const TextInput: React.FC<ITextInput> = ({
 }) => {
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <TextInputWrapStyled style={{ maxWidth }}>
         <TextInputStyled
           {...props}

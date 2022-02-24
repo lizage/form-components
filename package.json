@@ -1,5 +1,8 @@
 {
   "name": "@lizage/form-components",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/lizage"
+  },
   "version": "1.0.0",
   "description": "form ui components library: text input, number input, select, select multiple, autocomplete, checkbox, radio buttons and file input",
   "scripts": {
