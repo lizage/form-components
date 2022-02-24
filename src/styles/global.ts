@@ -5,7 +5,7 @@ type GlobalThemeProps = {
   theme: ThemeProps;
 };
 
-const globalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 html,
 * {
     direction: ${({ theme }: GlobalThemeProps) => theme.direction};
@@ -42,4 +42,4 @@ input[type=number] {
 }
  `;
 
-export default withTheme(globalStyle);
+export default withTheme(GlobalStyle);
