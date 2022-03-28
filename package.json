@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/lizage"
   },
-  "version": "0.0.105",
+  "version": "0.0.106",
   "description": "form ui components library: text input, number input, select, select multiple, autocomplete, checkbox, radio buttons and file input",
   "scripts": {
     "rollup": "rollup -c"
