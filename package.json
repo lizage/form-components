@@ -17,14 +17,20 @@
     "@types/react": "^17.0.39",
     "@types/styled-components": "^5.1.23",
     "@types/uuid": "^8.3.4",
-    "react": "^17.0.2",
     "react-icons": "^4.3.1",
     "rollup": "^2.68.0",
     "rollup-plugin-dts": "^4.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
     "styled-components": "^5.3.3",
     "tslib": "^2.3.1",
     "typescript": "^4.5.5",
     "uuid": "^8.3.2"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "ajv": ">=8",
+    "typescript": ">=2.8.0"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
