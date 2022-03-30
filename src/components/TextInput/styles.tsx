@@ -18,7 +18,7 @@ export const TextInputWrapStyled = styled.div`
   gap: 0.5rem;
 `;
 
-export const TextInputStyled = styled.input`
+export const TextInputStyled = styled.input.attrs({ type: "text" })`
   direction: ${({ theme }: GlobalThemeProps) => theme.direction};
 
   color: ${({ theme }: GlobalThemeProps) => theme.fontColor};

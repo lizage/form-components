@@ -16,6 +16,7 @@ export const TextInput: React.FC<ITextInput> = ({
       <GlobalStyle />
       <TextInputWrapStyled style={{ maxWidth }}>
         <TextInputStyled
+          data-testid="text-input"
           {...props}
           onChange={(e) => onChange(e.target.value)}
         />
