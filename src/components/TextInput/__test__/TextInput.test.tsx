@@ -1,10 +1,7 @@
 import React from "react";
-import "regenerator-runtime/runtime";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import TextInput from "../TextInput";
 import { act } from "react-dom/test-utils";
-
-afterEach(cleanup);
 
 describe("TextInput", () => {
   test("render the TextInput component", () => {
@@ -62,14 +59,11 @@ describe("TextInput", () => {
     act(async () => {
       const inputValue = "some text";
       const { getByTestId } = render(
-        <TextInput
-          value={"value string"}
-          onChange={() => console.log("onchange")}
-        />
+        <TextInput value={""} onChange={() => console.log("onchange")} />
       );
       const input = getByTestId("text-input");
       await fireEvent.change(input, { target: { value: inputValue } });
-      expect(input.nodeValue).toBe(inputValue);
+      expect(input.getAttribute("value")).toBe(inputValue);
     });
   });
 });
