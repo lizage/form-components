@@ -57,12 +57,10 @@ describe("TextInput", () => {
 
   test("push the ClearButton", () => {
     act(async () => {
+      const mockCallBack = jest.fn();
       const valueString = "some text";
       const { getByTestId } = render(
-        <TextInput
-          value={valueString}
-          onChange={() => console.log("onchange")}
-        />
+        <TextInput value={valueString} onChange={mockCallBack} />
       );
       const clearButton = getByTestId("clear-button");
       const input = getByTestId("text-input");
@@ -72,14 +70,15 @@ describe("TextInput", () => {
   });
 
   test("change the input", () => {
-    act(async () => {
+    act(() => {
+      const mockCallBack = jest.fn();
       const inputValue = "some text";
       const { getByTestId } = render(
-        <TextInput value={""} onChange={() => console.log("onchange")} />
+        <TextInput value={""} onChange={mockCallBack} />
       );
       const input = getByTestId("text-input");
-      await fireEvent.change(input, { target: { value: inputValue } });
-      expect(input.getAttribute("value")).toBe(inputValue);
+      fireEvent.change(input, { target: { value: inputValue } });
+      expect(mockCallBack.mock.calls.length).toEqual(1);
     });
   });
 });

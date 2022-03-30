@@ -27,8 +27,8 @@ describe("Button", () => {
     expect(button.innerHTML).toBe(childrenValue);
   });
 
-  test("click the button", () => {
-    act(async () => {
+  test("click the button", async () => {
+    await act(async () => {
       const mockCallBack = jest.fn();
       const { getByTestId } = render(
         <Button onClick={mockCallBack} children={"click me"} />
