@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import TextInput from "../TextInput";
 import { act } from "react-dom/test-utils";
+import TextInput from "../TextInput";
 
 describe("TextInput", () => {
   test("render the TextInput component", () => {
@@ -53,6 +53,22 @@ describe("TextInput", () => {
     );
     const clearButton = queryByTestId("clear-button");
     expect(clearButton).toBeFalsy();
+  });
+
+  test("push the ClearButton", () => {
+    act(async () => {
+      const valueString = "some text";
+      const { getByTestId } = render(
+        <TextInput
+          value={valueString}
+          onChange={() => console.log("onchange")}
+        />
+      );
+      const clearButton = getByTestId("clear-button");
+      const input = getByTestId("text-input");
+      await fireEvent.click(clearButton);
+      expect(input.getAttribute("value")).toBe("");
+    });
   });
 
   test("change the input", () => {

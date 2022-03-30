@@ -7,7 +7,7 @@ import { ButtonStyled } from "./styles";
 export const Button: React.FC<IButton> = (props) => (
   <ThemeProvider theme={props.theme}>
     <GlobalStyle />
-    <ButtonStyled {...props} />
+    <ButtonStyled {...props} data-testid="button" />
   </ThemeProvider>
 );
 
