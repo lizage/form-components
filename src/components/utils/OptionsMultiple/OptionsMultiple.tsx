@@ -18,36 +18,36 @@ export const OptionsMultiple: React.FC<IOptionsMultiple> = ({
     const firstOption = optionsRef.current[0]?.childNodes[0]
       .childNodes[0] as HTMLInputElement;
     firstOption.focus();
-    addFocusStyle(optionsRef.current[0] as HTMLDivElement);
+    addStyle(optionsRef.current[0] as HTMLDivElement);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options]);
 
   useEffect(() => {
     // manage style on mouse click or hover
-    const handleFocusStyle = (e: MouseEvent) => {
+    const handleStyle = (e: MouseEvent) => {
       const index = optionsRef.current.findIndex(
         (item) => item && item.contains(e.target as Node)
       );
       if (index !== -1) {
         for (let i in optionsRef.current) {
-          removeFocusStyle(optionsRef.current[i] as HTMLDivElement);
+          removeStyle(optionsRef.current[i] as HTMLDivElement);
         }
-        addFocusStyle(optionsRef.current[index] as HTMLDivElement);
+        addStyle(optionsRef.current[index] as HTMLDivElement);
       }
     };
-    document.addEventListener("mouseover", handleFocusStyle);
-    document.addEventListener("mousedown", handleFocusStyle);
+    document.addEventListener("mouseover", handleStyle);
+    document.addEventListener("mousedown", handleStyle);
     return () => {
-      document.removeEventListener("mouseover", handleFocusStyle);
-      document.removeEventListener("mousedown", handleFocusStyle);
+      document.removeEventListener("mouseover", handleStyle);
+      document.removeEventListener("mousedown", handleStyle);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [optionsRef]);
 
-  const addFocusStyle = (el: HTMLDivElement) => {
+  const addStyle = (el: HTMLDivElement) => {
     el.style.backgroundColor = theme?.delicateColor || "";
   };
-  const removeFocusStyle = (el: HTMLDivElement) => {
+  const removeStyle = (el: HTMLDivElement) => {
     el.style.backgroundColor = "transparent";
   };
 
@@ -69,17 +69,22 @@ export const OptionsMultiple: React.FC<IOptionsMultiple> = ({
       ?.childNodes[0] as HTMLDivElement;
     nextOption?.focus();
     nextOption?.scrollTo();
-    removeFocusStyle(optionsRef.current[i] as HTMLDivElement);
-    addFocusStyle(optionsRef.current[nextIndex] as HTMLDivElement);
+    removeStyle(optionsRef.current[i] as HTMLDivElement);
+    addStyle(optionsRef.current[nextIndex] as HTMLDivElement);
   };
 
   return (
-    <OptionsMultipleStyled style={{ maxWidth }}>
+    <OptionsMultipleStyled
+      style={{ maxWidth }}
+      data-testid="multiple-options-list"
+    >
       {options.map((option, i) => (
         <OptionMultipleStyled
           key={option}
           ref={(el) => (optionsRef.current[i] = el)}
           onKeyUp={(e) => handleKeyUp(e, i)}
+          // onKeyUp={() => console.log("!!!")}
+          data-testid={`multiple-option-row-${i}`}
         >
           <Checkbox
             value={chosenOptions.includes(option)}
