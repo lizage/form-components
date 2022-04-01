@@ -4,37 +4,33 @@ import { act } from "react-dom/test-utils";
 import Button from "../Button";
 
 describe("Button", () => {
-  test("render the Button component", () => {
+  it("should render the Button component", () => {
+    const mockCallBack = jest.fn();
     const { getByTestId } = render(
-      <Button
-        onClick={() => console.log("button was clicked")}
-        children={"click me"}
-      />
+      <Button onClick={mockCallBack} children={"click me"} />
     );
     const button = getByTestId("button");
     expect(button).toBeTruthy();
   });
 
-  test("render the children props", () => {
+  it("should render the children props", () => {
+    const mockCallBack = jest.fn();
     const childrenValue = "click me";
     const { getByTestId } = render(
-      <Button
-        onClick={() => console.log("button was clicked")}
-        children={childrenValue}
-      />
+      <Button onClick={mockCallBack} children={"click me"} />
     );
     const button = getByTestId("button");
     expect(button.innerHTML).toBe(childrenValue);
   });
 
-  test("click the button", async () => {
-    await act(async () => {
+  it("should click the button", () => {
+    act(() => {
       const mockCallBack = jest.fn();
       const { getByTestId } = render(
         <Button onClick={mockCallBack} children={"click me"} />
       );
       const button = getByTestId("button");
-      await fireEvent.click(button);
+      fireEvent.click(button);
       expect(mockCallBack.mock.calls.length).toEqual(1);
     });
   });

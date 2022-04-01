@@ -44,7 +44,7 @@ export const FilesButton: React.FC<IFilesButton> = ({ addFile, id, theme }) => {
   };
 
   return (
-    <FileLabelStyled>
+    <FileLabelStyled data-testid="files-button">
       <FileInputStyled
         addFile={addFile}
         onFocus={onFocus}

@@ -44,6 +44,7 @@ export const FileInput: React.FC<IFileInput> = ({
       onFocus={onFocus}
       onBlur={onBlur}
       id={id}
+      data-testid="input-file"
     />
   );
 };

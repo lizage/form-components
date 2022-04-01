@@ -4,20 +4,22 @@ import { act } from "react-dom/test-utils";
 import TextInput from "../TextInput";
 
 describe("TextInput", () => {
-  test("render the TextInput component", () => {
+  it("should render the TextInput component", () => {
+    const mockCallBack = jest.fn();
     const { getByTestId } = render(
-      <TextInput value={""} onChange={() => console.log("onchange")} />
+      <TextInput value={""} onChange={mockCallBack} />
     );
     const input = getByTestId("text-input");
     expect(input).toBeTruthy();
   });
 
-  test("render the placeholder", () => {
-    const placeholderValue = "Please type something else";
+  it("should render the placeholder", () => {
+    const mockCallBack = jest.fn();
+    const placeholderValue = "Please type something";
     const { getByTestId } = render(
       <TextInput
         value={"value string"}
-        onChange={() => console.log("onchange")}
+        onChange={mockCallBack}
         placeholder={placeholderValue}
       />
     );
@@ -25,60 +27,45 @@ describe("TextInput", () => {
     expect(input.getAttribute("placeholder")).toBe(placeholderValue);
   });
 
-  test("render the correct type", () => {
+  it("should render the correct input type", () => {
+    const mockCallBack = jest.fn();
     const inputType = "text";
     const { getByTestId } = render(
-      <TextInput
-        value={"value string"}
-        onChange={() => console.log("onchange")}
-      />
+      <TextInput value={"value string"} onChange={mockCallBack} />
     );
     const input = getByTestId("text-input");
     expect(input.getAttribute("type")).toBe(inputType);
   });
 
-  test("render the ClearButton", () => {
+  it("should render the ClearButton if value is not empty", () => {
+    const mockCallBack = jest.fn();
     const valueString = "some text";
     const { getByTestId } = render(
-      <TextInput value={valueString} onChange={() => console.log("onchange")} />
+      <TextInput value={valueString} onChange={mockCallBack} />
     );
     const clearButton = getByTestId("clear-button");
     expect(clearButton).toBeTruthy();
   });
 
-  test("don't render the ClearButton", () => {
+  it("should not render the ClearButton if value is empty", () => {
+    const mockCallBack = jest.fn();
     const valueString = "";
     const { queryByTestId } = render(
-      <TextInput value={valueString} onChange={() => console.log("onchange")} />
+      <TextInput value={valueString} onChange={mockCallBack} />
     );
     const clearButton = queryByTestId("clear-button");
     expect(clearButton).toBeFalsy();
   });
 
-  test("push the ClearButton", () => {
-    act(async () => {
-      const mockCallBack = jest.fn();
-      const valueString = "some text";
-      const { getByTestId } = render(
-        <TextInput value={valueString} onChange={mockCallBack} />
-      );
-      const clearButton = getByTestId("clear-button");
-      const input = getByTestId("text-input");
-      await fireEvent.click(clearButton);
-      expect(input.getAttribute("value")).toBe("");
-    });
-  });
-
-  test("change the input", () => {
+  it("should call onchange", () => {
+    const mockCallBack = jest.fn();
+    const { getByTestId } = render(
+      <TextInput value={"some text"} onChange={mockCallBack} />
+    );
+    const input = getByTestId("text-input");
     act(() => {
-      const mockCallBack = jest.fn();
-      const inputValue = "some text";
-      const { getByTestId } = render(
-        <TextInput value={""} onChange={mockCallBack} />
-      );
-      const input = getByTestId("text-input");
-      fireEvent.change(input, { target: { value: inputValue } });
-      expect(mockCallBack.mock.calls.length).toEqual(1);
+      fireEvent.change(input, { target: { value: "other text" } });
     });
+    expect(mockCallBack).toHaveBeenCalledWith("other text");
   });
 });
