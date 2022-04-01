@@ -8,39 +8,41 @@ export const FilesButton: React.FC<IFilesButton> = ({ addFile, id, theme }) => {
 
   useEffect(() => {
     // manage style on mouse click or hover
-    const handleFocusStyle = (e: MouseEvent) => {
+    const handleHoverStyle = (e: MouseEvent) => {
       if (buttonRef.current?.contains(e.target as HTMLInputElement)) {
-        addFocusStyle(buttonRef.current);
+        addStyle(buttonRef.current);
       } else {
-        removeFocusStyle(buttonRef.current as HTMLDivElement);
+        removeStyle(buttonRef.current as HTMLDivElement);
       }
     };
+
     if (window.innerWidth > 900) {
-      document.addEventListener("mouseover", handleFocusStyle);
+      document.addEventListener("mouseover", handleHoverStyle);
     }
-    document.addEventListener("mousedown", handleFocusStyle);
+    document.addEventListener("mousedown", handleHoverStyle);
     return () => {
-      document.removeEventListener("mouseover", handleFocusStyle);
-      document.removeEventListener("mousedown", handleFocusStyle);
+      document.removeEventListener("mouseover", handleHoverStyle);
+      document.removeEventListener("mousedown", handleHoverStyle);
     };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [buttonRef]);
 
-  const addFocusStyle = (el: HTMLDivElement) => {
+  const addStyle = (el: HTMLDivElement) => {
     el.style.backgroundColor = theme?.focusedColor || "";
     el.style.color = theme?.focusedFontColor || "";
   };
-  const removeFocusStyle = (el: HTMLDivElement) => {
+  const removeStyle = (el: HTMLDivElement) => {
     el.style.backgroundColor = "transparent";
     el.style.color = theme?.buttonFontColor || "";
   };
 
   const onFocus = (e: Event) => {
-    addFocusStyle((e.target as Node).nextSibling as HTMLDivElement);
+    addStyle((e.target as Node).nextSibling as HTMLDivElement);
   };
 
   const onBlur = (e: Event) => {
-    removeFocusStyle((e.target as Node).nextSibling as HTMLDivElement);
+    removeStyle((e.target as Node).nextSibling as HTMLDivElement);
   };
 
   return (
@@ -52,7 +54,7 @@ export const FilesButton: React.FC<IFilesButton> = ({ addFile, id, theme }) => {
         aria-label="file input"
         id={id}
       />
-      <FileIconStyled ref={buttonRef} aria-hidden>
+      <FileIconStyled ref={buttonRef} aria-hidden data-testid="files-icon">
         <BiPlus aria-hidden />
       </FileIconStyled>
     </FileLabelStyled>
