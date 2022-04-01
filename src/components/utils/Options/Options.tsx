@@ -20,7 +20,7 @@ export const Options: React.FC<IOptions> = ({
 
   useEffect(() => {
     // manage style on mouse click or hover
-    const handleHoverStyle = (e: MouseEvent) => {
+    const handleStyle = (e: MouseEvent) => {
       const index = optionsRef.current.findIndex(
         (item) => item && item === e.target
       );
@@ -32,12 +32,12 @@ export const Options: React.FC<IOptions> = ({
       }
     };
     if (window.innerWidth > 900) {
-      document.addEventListener("mouseover", handleHoverStyle);
+      document.addEventListener("mouseover", handleStyle);
     }
-    document.addEventListener("mousedown", handleHoverStyle);
+    document.addEventListener("mousedown", handleStyle);
     return () => {
-      document.removeEventListener("mouseover", handleHoverStyle);
-      document.removeEventListener("mousedown", handleHoverStyle);
+      document.removeEventListener("mouseover", handleStyle);
+      document.removeEventListener("mousedown", handleStyle);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [optionsRef]);
