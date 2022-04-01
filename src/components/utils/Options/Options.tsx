@@ -14,38 +14,38 @@ export const Options: React.FC<IOptions> = ({
     // populate refs array, focus on first el
     optionsRef.current = optionsRef.current.slice(0, options.length);
     optionsRef.current[0]?.focus();
-    addFocusStyle(optionsRef.current[0] as HTMLButtonElement);
+    addStyle(optionsRef.current[0] as HTMLButtonElement);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options]);
 
   useEffect(() => {
     // manage style on mouse click or hover
-    const handleFocusStyle = (e: MouseEvent) => {
+    const handleHoverStyle = (e: MouseEvent) => {
       const index = optionsRef.current.findIndex(
         (item) => item && item === e.target
       );
       if (index !== -1) {
         for (let i in optionsRef.current) {
-          removeFocusStyle(optionsRef.current[i] as HTMLButtonElement);
+          removeStyle(optionsRef.current[i] as HTMLButtonElement);
         }
-        addFocusStyle(optionsRef.current[index] as HTMLButtonElement);
+        addStyle(optionsRef.current[index] as HTMLButtonElement);
       }
     };
     if (window.innerWidth > 900) {
-      document.addEventListener("mouseover", handleFocusStyle);
+      document.addEventListener("mouseover", handleHoverStyle);
     }
-    document.addEventListener("mousedown", handleFocusStyle);
+    document.addEventListener("mousedown", handleHoverStyle);
     return () => {
-      document.removeEventListener("mouseover", handleFocusStyle);
-      document.removeEventListener("mousedown", handleFocusStyle);
+      document.removeEventListener("mouseover", handleHoverStyle);
+      document.removeEventListener("mousedown", handleHoverStyle);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [optionsRef]);
 
-  const addFocusStyle = (el: HTMLButtonElement) => {
+  const addStyle = (el: HTMLButtonElement) => {
     el.style.backgroundColor = theme?.delicateColor || "";
   };
-  const removeFocusStyle = (el: HTMLButtonElement) => {
+  const removeStyle = (el: HTMLButtonElement) => {
     el.style.backgroundColor = "transparent";
   };
 
@@ -66,12 +66,12 @@ export const Options: React.FC<IOptions> = ({
     let nextOption = optionsRef.current[nextIndex] as HTMLButtonElement;
     nextOption?.focus();
     nextOption?.scrollTo();
-    removeFocusStyle(optionsRef.current[i] as HTMLButtonElement);
-    addFocusStyle(optionsRef.current[nextIndex] as HTMLButtonElement);
+    removeStyle(optionsRef.current[i] as HTMLButtonElement);
+    addStyle(optionsRef.current[nextIndex] as HTMLButtonElement);
   };
 
   return (
-    <OptionsStyled style={{ maxWidth }}>
+    <OptionsStyled style={{ maxWidth }} data-testid="options-list">
       {options.map((option, i) => (
         <OptionStyled
           key={option}
@@ -79,6 +79,7 @@ export const Options: React.FC<IOptions> = ({
           onClick={() => chooseOption(option)}
           onKeyUp={(e) => handleKeyUp(e, i)}
           aria-label="option"
+          data-testid={`option-row-${i}`}
         >
           {option}
         </OptionStyled>

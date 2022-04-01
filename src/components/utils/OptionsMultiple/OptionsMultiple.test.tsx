@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import OptionsMultiple from "./OptionsMultiple";
 
-describe("OptionsMultiple", () => {
+describe("__OptionsMultiple", () => {
   test("renders the OptionsMultiple component", () => {
     render(
       <OptionsMultiple
