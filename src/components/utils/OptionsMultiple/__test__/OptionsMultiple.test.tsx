@@ -21,18 +21,26 @@ describe("OptionsMultiple", () => {
     expect(options).toBeTruthy();
   });
 
-  // it("should call chooseOption when a row checkbox is changed", () => {
-  //   const mockCallBack = jest.fn();
-  //   const optionsArr = ["111", "222", "333"];
-  //   const chosenOptionsArr = ["111"];
-  //   const { getByTestId } = render(
-  //     <OptionsMultiple
-  //       options={optionsArr}
-  //       chosenOptions={chosenOptionsArr}
-  //       chooseOption={mockCallBack}
-  //     />
-  //   );
-  // });
+  it("should call chooseOption when a row checkbox is changed", () => {
+    const mockCallBack = jest.fn();
+    const optionsArr = ["111", "222", "333"];
+    const chosenOptionsArr = ["111"];
+    const { getByTestId } = render(
+      <OptionsMultiple
+        options={optionsArr}
+        chosenOptions={chosenOptionsArr}
+        chooseOption={mockCallBack}
+      />
+    );
+    const secondOption = getByTestId("multiple-option-row-1");
+    const checkbox = secondOption.getElementsByTagName("input")[0];
+    act(() => {
+      fireEvent.click(checkbox, {
+        target: { checked: true },
+      });
+    });
+    expect(mockCallBack.mock.calls.length).toEqual(1);
+  });
 
   it("should focus on first row right after mount", () => {
     const mockCallBack = jest.fn();
