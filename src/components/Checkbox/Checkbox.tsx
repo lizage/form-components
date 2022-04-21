@@ -19,7 +19,7 @@ export const Checkbox: React.FC<ICheckbox> = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <CheckboxLabelStyled>
+      <CheckboxLabelStyled data-testid="checkbox">
         <input
           {...props}
           type="checkbox"

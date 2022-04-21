@@ -24,6 +24,7 @@ export const RadioButtons: React.FC<IRadio> = ({
       <GlobalStyle />
       <RadioInputWrapStyled
         style={{ maxWidth, flexDirection: isVertical ? "column" : "row" }}
+        data-testid="radio-buttons"
       >
         {options.map((option, i) => (
           <RadioLabelStyled key={option}>

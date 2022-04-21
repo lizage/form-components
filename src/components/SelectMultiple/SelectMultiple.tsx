@@ -66,7 +66,11 @@ export const SelectMultiple: React.FC<ISelectMultiple> = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <SelectMultipleWrapStyled ref={wrapperRef} style={{ maxWidth }}>
+      <SelectMultipleWrapStyled
+        ref={wrapperRef}
+        style={{ maxWidth }}
+        data-testid="select-multiple"
+      >
         <SelectMultipleBoxStyled>
           <SelectMultipleInputStyled
             value={chosenLabel(chosenOptions.length)}

@@ -56,7 +56,7 @@ export const Autocomplete: React.FC<IAutocomplete> = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <AutocompleteWrapStyled ref={wrapperRef}>
+      <AutocompleteWrapStyled ref={wrapperRef} data-testid="autocomplete">
         <TextInput
           value={value}
           onChange={onChange}

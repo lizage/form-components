@@ -44,7 +44,11 @@ export const Select: React.FC<ISelect> = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <SelectWrapStyled ref={wrapperRef} style={{ maxWidth }}>
+      <SelectWrapStyled
+        ref={wrapperRef}
+        style={{ maxWidth }}
+        data-testid="select"
+      >
         <SelectBoxStyled>
           <SelectInputStyled
             value={value}

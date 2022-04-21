@@ -18,7 +18,7 @@ export const SearchInput: React.FC<ISearchInput> = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <SearchInputWrapStyled style={{ maxWidth }}>
+      <SearchInputWrapStyled style={{ maxWidth }} data-testid="search-input">
         <SearchInputStyled
           {...props}
           onChange={(e) => onChange(e.target.value)}

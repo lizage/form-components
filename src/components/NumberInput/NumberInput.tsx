@@ -17,12 +17,9 @@ export const NumberInput: React.FC<INumberInput> = ({
   const [maxFloat, setMaxFloat] = useState<number>(0);
   useEffect(() => {
     // check how many digits after floating point
-    const isFloat = value.toString().split(".").length > step;
+    const isFloat = value.toString().split(".").length > 1;
     const floatNumber = isFloat
-      ? value
-          .toString()
-          .split(".")
-          [value.toString().split(".").length - 1].split("").length
+      ? value.toString().split(".")[1].split("").length
       : 0;
     setMaxFloat(floatNumber);
   }, [value, step]);
@@ -38,7 +35,7 @@ export const NumberInput: React.FC<INumberInput> = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <NumberInputWrapStyled style={{ maxWidth }}>
+      <NumberInputWrapStyled style={{ maxWidth }} data-testid="number-input">
         <NumberButton type="plus" onClick={() => increase()} />
         <NumberInputStyled
           value={value || placeholder}

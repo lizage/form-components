@@ -65,7 +65,7 @@ const FilesInput: React.FC<IFilesInput> = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <FilesStyled style={{ maxWidth }}>
+      <FilesStyled style={{ maxWidth }} data-testid="files-input">
         <FilesFieldStyled>
           <FilePlaceholderStyled
             type="text"
