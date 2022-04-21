@@ -16,7 +16,7 @@ export const OptionsMultiple: React.FC<IOptionsMultiple> = ({
     // populate refs array, focus on first el
     optionsRef.current = optionsRef.current.slice(0, options.length);
     const firstOption = optionsRef.current[0]?.childNodes[0]
-      .childNodes[0] as HTMLInputElement;
+      ?.childNodes[0] as HTMLInputElement;
     firstOption.focus();
     addStyle(optionsRef.current[0] as HTMLDivElement);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -65,8 +65,8 @@ export const OptionsMultiple: React.FC<IOptionsMultiple> = ({
       nextIndex = 0;
     }
 
-    let nextOption = optionsRef.current[nextIndex]
-      ?.childNodes[0] as HTMLDivElement;
+    let nextOption = optionsRef.current[nextIndex]?.childNodes[0]
+      ?.childNodes[0] as HTMLInputElement;
     nextOption?.focus();
     nextOption?.scrollTo();
     removeStyle(optionsRef.current[i] as HTMLDivElement);
@@ -83,7 +83,6 @@ export const OptionsMultiple: React.FC<IOptionsMultiple> = ({
           key={option}
           ref={(el) => (optionsRef.current[i] = el)}
           onKeyUp={(e) => handleKeyUp(e, i)}
-          // onKeyUp={() => console.log("!!!")}
           data-testid={`multiple-option-row-${i}`}
         >
           <Checkbox
