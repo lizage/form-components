@@ -1,6 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
+import { render } from "@testing-library/react";
 import FileInput from "../FileInput";
 
 describe("FileInput", () => {

@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import OptionsMultiple from "./OptionsMultiple";
 
 export default {
-  title: "FormComponents/Utils/OptionsMultiple",
+  title: "FormComponents/Utils",
   component: OptionsMultiple,
 } as ComponentMeta<typeof OptionsMultiple>;
 
