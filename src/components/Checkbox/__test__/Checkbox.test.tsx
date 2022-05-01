@@ -17,5 +17,7 @@ describe("Checkbox", () => {
     expect(input).toBeTruthy();
   });
 
-  it("should do something", () => {});
+  it("should render the label correctly", () => {});
+
+  it("should call onchange when value is changed", () => {});
 });

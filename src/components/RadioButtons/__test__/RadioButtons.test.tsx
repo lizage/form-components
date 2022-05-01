@@ -19,4 +19,6 @@ describe("RadioButtons", () => {
   });
 
   it("should call onChange when button is clicked", () => {});
+
+  it("should render the labels correctly", () => {});
 });

@@ -24,7 +24,9 @@ describe("SelectMultiple", () => {
 
   it("should show options component when open", () => {});
 
-  it("should not show options component when closed", () => {});
+  it("should hide options component when closed", () => {});
+
+  it("should hide options component on blur", () => {});
 
   it("should show placeholder when no option is chosen", () => {});
 

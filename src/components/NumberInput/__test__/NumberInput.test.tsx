@@ -22,11 +22,27 @@ describe("NumberInput", () => {
 
   it("should call onChange when value is changed", () => {});
 
-  it("should increase correctly according to step", () => {});
+  it("should increase according to step when step is integer", () => {});
 
-  it("should decrease correctly according to step", () => {});
+  it("should increase according to step when step is float between 0 and 1", () => {});
+
+  it("should increase according to step when step is float larger than 1", () => {});
+
+  it("should decrease according to step when step is integer", () => {});
+
+  it("should decrease according to step when step is float between 0 and 1", () => {});
+
+  it("should decrease according to step when step is float larger than 1", () => {});
 
   it("should not decrease to negative results", () => {});
 
-  it("should render float numbers correctly", () => {});
+  it("should not decrease to negative results when step is float between 0 and 1", () => {});
+
+  it("should not decrease to negative results when step is float larger than 1", () => {});
+
+  it("should render float numbers with given number of digits after dot", () => {});
+
+  it("should increase correctly when plus button pressed multiple times", () => {});
+
+  it("should decrease correctly when minus button pressed multiple times", () => {});
 });

@@ -19,5 +19,17 @@ describe("Autocomplete", () => {
     expect(input).toBeTruthy();
   });
 
-  it("should do something", () => {});
+  it("should call onchange when value is changed", () => {});
+
+  it("should show placeholder when no option is chosen", () => {});
+
+  it("should search the options when value length >= minChars", () => {});
+
+  it("should show options component when value matches one of the options", () => {});
+
+  it("should show options component when value matches more then one of the options", () => {});
+
+  it("should hide options component when option is chosen", () => {});
+
+  it("should hide options component on blur", () => {});
 });
