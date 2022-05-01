@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import OptionsMultiple from "./OptionsMultiple";
+import OptionsMultiple from "../OptionsMultiple";
 
 export default {
   title: "FormComponents/Utils",

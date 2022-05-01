@@ -1,22 +1,23 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Select from "./Select";
+import SearchInput from "../SearchInput";
 
 export default {
-  title: "FormComponents/Select",
-  component: Select,
-} as ComponentMeta<typeof Select>;
+  title: "FormComponents/SearchInput",
+  component: SearchInput,
+} as ComponentMeta<typeof SearchInput>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof SearchInput> = (args) => (
+  <SearchInput {...args} />
+);
 
-export const EmptySelect = Template.bind({});
+export const EmptySearchInput = Template.bind({});
 
-EmptySelect.args = {
-  onChange: () => console.log("option was chosen"),
-  options: ["111", "222", "333"],
+EmptySearchInput.args = {
+  onChange: () => console.log("value has changed"),
   value: "",
+  placeholder: "please type to search",
   maxWidth: 300,
-  placeholder: "please choose an option",
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",
@@ -34,14 +35,13 @@ EmptySelect.args = {
   },
 };
 
-export const FilledSelect = Template.bind({});
+export const FilledSearchInput = Template.bind({});
 
-FilledSelect.args = {
-  onChange: () => console.log("option was chosen"),
-  options: ["111", "222", "333"],
-  value: "111",
+FilledSearchInput.args = {
+  onChange: () => console.log("value has changed"),
+  value: "some text added",
+  placeholder: "please type to search",
   maxWidth: 300,
-  placeholder: "please choose an option",
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",

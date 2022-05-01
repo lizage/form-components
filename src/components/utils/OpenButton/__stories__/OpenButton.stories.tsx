@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import OpenButton from "./OpenButton";
+import OpenButton from "../OpenButton";
 
 export default {
   title: "FormComponents/Utils",

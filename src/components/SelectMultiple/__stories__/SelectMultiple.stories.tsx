@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import SelectMultiple from "./SelectMultiple";
+import SelectMultiple from "../SelectMultiple";
 
 export default {
   title: "FormComponents/SelectMultiple",

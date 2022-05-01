@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import FilesButton from "./FilesButton";
+import FilesButton from "../FilesButton";
 
 export default {
   title: "FormComponents/Utils",

@@ -1,23 +1,24 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Button from "./Button";
+import RadioButtons from "../RadioButtons";
 
 export default {
-  title: "FormComponents/Button",
-  component: Button,
-} as ComponentMeta<typeof Button>;
+  title: "FormComponents/RadioButtons",
+  component: RadioButtons,
+} as ComponentMeta<typeof RadioButtons>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof RadioButtons> = (args) => (
+  <RadioButtons {...args} />
+);
 
-export const PrimaryButton = Template.bind({});
+export const HorizontalRadioButtons = Template.bind({});
 
-PrimaryButton.args = {
-  onClick: () => console.log("Primary button was clicked"),
-  children: "I'm an important button",
-  id: "button_1",
-  use: "primary",
-  maxWidth: 250,
-  "aria-label": "primary button",
+HorizontalRadioButtons.args = {
+  onChange: () => console.log("radio buttons was clicked"),
+  options: ["111", "222", "333"],
+  currentOption: "111",
+  maxWidth: 300,
+  isVertical: false,
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",
@@ -35,15 +36,14 @@ PrimaryButton.args = {
   },
 };
 
-export const SecondaryButton = Template.bind({});
+export const VerticalRadioButtons = Template.bind({});
 
-SecondaryButton.args = {
-  onClick: () => console.log("Secondary button was clicked"),
-  children: "I'm a simple button",
-  id: "button_2",
-  use: "secondary",
-  maxWidth: 250,
-  "aria-label": "secondary button",
+VerticalRadioButtons.args = {
+  onChange: () => console.log("radio buttons was clicked"),
+  options: ["111", "222", "333"],
+  currentOption: "111",
+  maxWidth: 300,
+  isVertical: true,
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",

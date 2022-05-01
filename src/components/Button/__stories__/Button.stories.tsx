@@ -1,23 +1,23 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import SearchInput from "./SearchInput";
+import Button from "../Button";
 
 export default {
-  title: "FormComponents/SearchInput",
-  component: SearchInput,
-} as ComponentMeta<typeof SearchInput>;
+  title: "FormComponents/Button",
+  component: Button,
+} as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof SearchInput> = (args) => (
-  <SearchInput {...args} />
-);
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const EmptySearchInput = Template.bind({});
+export const PrimaryButton = Template.bind({});
 
-EmptySearchInput.args = {
-  onChange: () => console.log("value has changed"),
-  value: "",
-  placeholder: "please type to search",
-  maxWidth: 300,
+PrimaryButton.args = {
+  onClick: () => console.log("Primary button was clicked"),
+  children: "I'm an important button",
+  id: "button_1",
+  use: "primary",
+  maxWidth: 250,
+  "aria-label": "primary button",
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",
@@ -35,13 +35,15 @@ EmptySearchInput.args = {
   },
 };
 
-export const FilledSearchInput = Template.bind({});
+export const SecondaryButton = Template.bind({});
 
-FilledSearchInput.args = {
-  onChange: () => console.log("value has changed"),
-  value: "some text added",
-  placeholder: "please type to search",
-  maxWidth: 300,
+SecondaryButton.args = {
+  onClick: () => console.log("Secondary button was clicked"),
+  children: "I'm a simple button",
+  id: "button_2",
+  use: "secondary",
+  maxWidth: 250,
+  "aria-label": "secondary button",
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",

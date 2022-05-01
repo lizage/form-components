@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import FileChip from "./FileChip";
+import FileChip from "../FileChip";
 
 export default {
   title: "FormComponents/Utils",

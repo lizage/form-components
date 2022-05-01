@@ -1,22 +1,21 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import TextInput from "./TextInput";
+import NumberInput from "../NumberInput";
 
 export default {
-  title: "FormComponents/TextInput",
-  component: TextInput,
-} as ComponentMeta<typeof TextInput>;
+  title: "FormComponents/NumberInput",
+  component: NumberInput,
+} as ComponentMeta<typeof NumberInput>;
 
-const Template: ComponentStory<typeof TextInput> = (args) => (
-  <TextInput {...args} />
+const Template: ComponentStory<typeof NumberInput> = (args) => (
+  <NumberInput {...args} />
 );
 
-export const EmptyTextInput = Template.bind({});
+export const EmptyNumberInput = Template.bind({});
 
-EmptyTextInput.args = {
-  onChange: () => console.log("value has changed"),
-  value: "",
-  placeholder: "please type here",
+EmptyNumberInput.args = {
+  onChange: () => console.log("number input has changed"),
+  value: 0,
   maxWidth: 300,
   theme: {
     fontColor: "#666",
@@ -35,12 +34,11 @@ EmptyTextInput.args = {
   },
 };
 
-export const FilledTextInput = Template.bind({});
+export const FilledNumberInput = Template.bind({});
 
-FilledTextInput.args = {
-  onChange: () => console.log("value has changed"),
-  value: "some text added",
-  placeholder: "please type here",
+FilledNumberInput.args = {
+  onChange: () => console.log("number input has changed"),
+  value: 100,
   maxWidth: 300,
   theme: {
     fontColor: "#666",

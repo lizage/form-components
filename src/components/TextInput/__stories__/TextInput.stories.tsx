@@ -1,25 +1,23 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Autocomplete from "./Autocomplete";
+import TextInput from "../TextInput";
 
 export default {
-  title: "FormComponents/Autocomplete",
-  component: Autocomplete,
-} as ComponentMeta<typeof Autocomplete>;
+  title: "FormComponents/TextInput",
+  component: TextInput,
+} as ComponentMeta<typeof TextInput>;
 
-const Template: ComponentStory<typeof Autocomplete> = (args) => (
-  <Autocomplete {...args} />
+const Template: ComponentStory<typeof TextInput> = (args) => (
+  <TextInput {...args} />
 );
 
-export const EmptyAutocomplete = Template.bind({});
+export const EmptyTextInput = Template.bind({});
 
-EmptyAutocomplete.args = {
-  onChange: () => console.log("option was chosen"),
-  options: ["111", "222", "333"],
+EmptyTextInput.args = {
+  onChange: () => console.log("value has changed"),
   value: "",
-  minChars: 3,
-  maxWidth: 300,
   placeholder: "please type here",
+  maxWidth: 300,
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",
@@ -37,15 +35,13 @@ EmptyAutocomplete.args = {
   },
 };
 
-export const FilledAutocomplete = Template.bind({});
+export const FilledTextInput = Template.bind({});
 
-FilledAutocomplete.args = {
-  onChange: () => console.log("option was chosen"),
-  options: ["111", "222", "333"],
-  value: "111",
-  minChars: 3,
-  maxWidth: 300,
+FilledTextInput.args = {
+  onChange: () => console.log("value has changed"),
+  value: "some text added",
   placeholder: "please type here",
+  maxWidth: 300,
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",

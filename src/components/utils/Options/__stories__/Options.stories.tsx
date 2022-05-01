@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Options from "./Options";
+import Options from "../Options";
 
 export default {
   title: "FormComponents/Utils",

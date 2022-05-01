@@ -1,22 +1,22 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import NumberInput from "./NumberInput";
+import Select from "../Select";
 
 export default {
-  title: "FormComponents/NumberInput",
-  component: NumberInput,
-} as ComponentMeta<typeof NumberInput>;
+  title: "FormComponents/Select",
+  component: Select,
+} as ComponentMeta<typeof Select>;
 
-const Template: ComponentStory<typeof NumberInput> = (args) => (
-  <NumberInput {...args} />
-);
+const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
-export const EmptyNumberInput = Template.bind({});
+export const EmptySelect = Template.bind({});
 
-EmptyNumberInput.args = {
-  onChange: () => console.log("number input has changed"),
-  value: 0,
+EmptySelect.args = {
+  onChange: () => console.log("option was chosen"),
+  options: ["111", "222", "333"],
+  value: "",
   maxWidth: 300,
+  placeholder: "please choose an option",
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",
@@ -34,12 +34,14 @@ EmptyNumberInput.args = {
   },
 };
 
-export const FilledNumberInput = Template.bind({});
+export const FilledSelect = Template.bind({});
 
-FilledNumberInput.args = {
-  onChange: () => console.log("number input has changed"),
-  value: 100,
+FilledSelect.args = {
+  onChange: () => console.log("option was chosen"),
+  options: ["111", "222", "333"],
+  value: "111",
   maxWidth: 300,
+  placeholder: "please choose an option",
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",

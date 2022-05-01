@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import NumberButton from "./NumberButton";
+import NumberButton from "../NumberButton";
 
 export default {
   title: "FormComponents/Utils",

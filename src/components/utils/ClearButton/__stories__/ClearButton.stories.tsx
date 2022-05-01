@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import ClearButton from "./ClearButton";
+import ClearButton from "../ClearButton";
 
 export default {
   title: "FormComponents/Utils",

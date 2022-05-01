@@ -1,24 +1,25 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import RadioButtons from "./RadioButtons";
+import Autocomplete from "../Autocomplete";
 
 export default {
-  title: "FormComponents/RadioButtons",
-  component: RadioButtons,
-} as ComponentMeta<typeof RadioButtons>;
+  title: "FormComponents/Autocomplete",
+  component: Autocomplete,
+} as ComponentMeta<typeof Autocomplete>;
 
-const Template: ComponentStory<typeof RadioButtons> = (args) => (
-  <RadioButtons {...args} />
+const Template: ComponentStory<typeof Autocomplete> = (args) => (
+  <Autocomplete {...args} />
 );
 
-export const HorizontalRadioButtons = Template.bind({});
+export const EmptyAutocomplete = Template.bind({});
 
-HorizontalRadioButtons.args = {
-  onChange: () => console.log("radio buttons was clicked"),
+EmptyAutocomplete.args = {
+  onChange: () => console.log("option was chosen"),
   options: ["111", "222", "333"],
-  currentOption: "111",
+  value: "",
+  minChars: 3,
   maxWidth: 300,
-  isVertical: false,
+  placeholder: "please type here",
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",
@@ -36,14 +37,15 @@ HorizontalRadioButtons.args = {
   },
 };
 
-export const VerticalRadioButtons = Template.bind({});
+export const FilledAutocomplete = Template.bind({});
 
-VerticalRadioButtons.args = {
-  onChange: () => console.log("radio buttons was clicked"),
+FilledAutocomplete.args = {
+  onChange: () => console.log("option was chosen"),
   options: ["111", "222", "333"],
-  currentOption: "111",
+  value: "111",
+  minChars: 3,
   maxWidth: 300,
-  isVertical: true,
+  placeholder: "please type here",
   theme: {
     fontColor: "#666",
     borderColor: "#ccc",

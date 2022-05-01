@@ -1,21 +1,24 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import SubmitButton from "./SubmitButton";
+import FilesInput from "../FilesInput";
 
 export default {
-  title: "FormComponents/SubmitButton",
-  component: SubmitButton,
-} as ComponentMeta<typeof SubmitButton>;
+  title: "FormComponents/FilesInput",
+  component: FilesInput,
+} as ComponentMeta<typeof FilesInput>;
 
-const Template: ComponentStory<typeof SubmitButton> = (args) => (
-  <SubmitButton {...args} />
+const Template: ComponentStory<typeof FilesInput> = (args) => (
+  <FilesInput {...args} />
 );
 
-export const AllSubmitButton = Template.bind({});
+export const AllFilesInput = Template.bind({});
 
-AllSubmitButton.args = {
-  onClick: () => console.log("button was clicked"),
-  value: "click me",
+AllFilesInput.args = {
+  onChange: () => console.log("file was added"),
+  placeholder: "click to add a file",
+  singleLabel: "one file added",
+  multipleLabel: "more files added",
+  maxFiles: 5,
   maxWidth: 300,
   theme: {
     fontColor: "#666",
