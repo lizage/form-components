@@ -17,7 +17,19 @@ describe("SearchInput", () => {
     expect(input).toBeTruthy();
   });
 
-  it("should render the placeholder", () => {});
+  it("should render the placeholder", () => {
+    const mockCallBack = jest.fn();
+    const placeholderValue = "Please type something";
+    const { getByTestId } = render(
+      <SearchInput
+        value={""}
+        onChange={mockCallBack}
+        placeholder={"items search"}
+      />
+    );
+    const input = getByTestId("search-input");
+    expect(input.getAttribute("placeholder")).toBe(placeholderValue);
+  });
 
   it("should render the correct input type", () => {});
 

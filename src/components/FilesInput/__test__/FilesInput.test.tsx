@@ -19,5 +19,13 @@ describe("FilesInput", () => {
     expect(input).toBeTruthy();
   });
 
-  it("should do something", () => {});
+  it("should call onchange when input value is changed", () => {});
+
+  it("should become readonly when maxFiles is reached", () => {});
+
+  it("should render placeholder correctly", () => {});
+
+  it("should render single label when one file added", () => {});
+
+  it("should render multiple label when multiple files added", () => {});
 });
