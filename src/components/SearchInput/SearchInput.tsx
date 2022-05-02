@@ -27,7 +27,7 @@ export const SearchInput: React.FC<ISearchInput> = ({
         {props.value !== "" ? (
           <ClearButton onClick={() => onChange("")} />
         ) : (
-          <SearchIconStyled aria-hidden />
+          <SearchIconStyled aria-hidden data-testid="search-icon" />
         )}
       </SearchInputWrapStyled>
     </ThemeProvider>

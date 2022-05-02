@@ -2,7 +2,7 @@ import { ThemeProps } from "../../styles/theme";
 import { defaultTheme } from "../../styles/theme";
 
 export interface ISubmitButton {
-  onClick: () => void;
+  onClick?: () => void;
   value: string;
   id?: string;
   maxWidth?: number;

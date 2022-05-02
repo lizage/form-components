@@ -19,7 +19,7 @@ export const SearchInputWrapStyled = styled.div`
   gap: 0.5rem;
 `;
 
-export const SearchInputStyled = styled.input`
+export const SearchInputStyled = styled.input.attrs({ type: "text" })`
   direction: ${({ theme }: GlobalThemeProps) => theme.direction};
   width: 100%;
   flex-basis: auto;
