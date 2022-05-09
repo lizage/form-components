@@ -6,7 +6,6 @@ export interface INumberInput {
   value: number;
 
   step: number;
-  placeholder?: number;
   id?: string;
   maxWidth?: number;
   theme?: ThemeProps;
