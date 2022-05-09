@@ -37,6 +37,7 @@ export const RadioButtons: React.FC<IRadio> = ({
               aria-checked={option === currentOption}
               id={`${buttonsName}_option_${i}`}
               name={buttonsName}
+              data-testid={`radio-input-${i}`}
             />
             <RadioOuterCircleStyled aria-hidden>
               {option === currentOption && (

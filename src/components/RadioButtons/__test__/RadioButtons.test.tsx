@@ -18,7 +18,7 @@ describe("RadioButtons", () => {
     expect(input).toBeTruthy();
   });
 
-  it("should call onChange when button is clicked", () => {});
+  it("should call onChange when label is clicked", () => {});
 
   it("should render the labels correctly", () => {
     const mockCallBack = jest.fn();

@@ -73,6 +73,7 @@ const FilesInput: React.FC<IFilesInput> = ({
             placeholder={placeholder}
             disabled
             aria-label="displays how many files were added"
+            data-testid="files-label"
           />
           {chosenFilesLocal.length < maxFiles && (
             <FilesButton addFile={addFile} id={id} />
