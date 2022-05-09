@@ -8,20 +8,21 @@ import { NumberInputWrapStyled, NumberInputStyled } from "./styles";
 export const NumberInput: React.FC<INumberInput> = ({
   value,
   step,
-  placeholder,
   onChange,
   maxWidth,
   theme,
   ...props
 }) => {
   const [maxFloat, setMaxFloat] = useState<number>(0);
+
+  const getFloatNum = (num: number) => {
+    return num.toString().split(".").length > 1
+      ? num.toString().split(".")[1].split("").length
+      : 0;
+  };
   useEffect(() => {
     // check how many digits after floating point
-    const isFloat = value.toString().split(".").length > 1;
-    const floatNumber = isFloat
-      ? value.toString().split(".")[1].split("").length
-      : 0;
-    setMaxFloat(floatNumber);
+    setMaxFloat(Math.max(getFloatNum(value), getFloatNum(step)));
   }, [value, step]);
 
   const increase = () => {
@@ -36,13 +37,22 @@ export const NumberInput: React.FC<INumberInput> = ({
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <NumberInputWrapStyled style={{ maxWidth }} data-testid="number-input">
-        <NumberButton type="plus" onClick={() => increase()} />
+        <NumberButton
+          type="plus"
+          onClick={() => increase()}
+          data-testid="plus-button"
+        />
         <NumberInputStyled
-          value={value || placeholder}
+          value={value}
           onChange={(e) => onChange(Number(e.target.value))}
           {...props}
+          data-testid="number-input-input"
         />
-        <NumberButton type="minus" onClick={() => decrease()} />
+        <NumberButton
+          type="minus"
+          onClick={() => decrease()}
+          data-testid="minus-button"
+        />
       </NumberInputWrapStyled>
     </ThemeProvider>
   );
