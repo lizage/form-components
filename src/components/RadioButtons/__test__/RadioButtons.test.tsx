@@ -20,5 +20,22 @@ describe("RadioButtons", () => {
 
   it("should call onChange when button is clicked", () => {});
 
-  it("should render the labels correctly", () => {});
+  it("should render the labels correctly", () => {
+    const mockCallBack = jest.fn();
+    const labels = ["111", "222", "333"];
+    const { getByTestId } = render(
+      <RadioButtons
+        options={labels}
+        currentOption={"111"}
+        onChange={mockCallBack}
+        maxWidth={300}
+      />
+    );
+    const label0 = getByTestId("radio-label-0");
+    const label1 = getByTestId("radio-label-1");
+    const label2 = getByTestId("radio-label-2");
+    expect(label0.innerHTML).toBe("111");
+    expect(label1.innerHTML).toBe("222");
+    expect(label2.innerHTML).toBe("333");
+  });
 });

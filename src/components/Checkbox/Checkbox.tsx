@@ -32,7 +32,11 @@ export const Checkbox: React.FC<ICheckbox> = ({
         </CheckboxBoxStyled>
 
         {labelText && (
-          <CheckboxLabelTextStyled htmlFor={props.id} {...props}>
+          <CheckboxLabelTextStyled
+            htmlFor={props.id}
+            {...props}
+            data-testid="checkbox-label"
+          >
             {labelText}
           </CheckboxLabelTextStyled>
         )}

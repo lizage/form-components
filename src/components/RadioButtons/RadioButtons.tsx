@@ -46,6 +46,7 @@ export const RadioButtons: React.FC<IRadio> = ({
             <label
               aria-label="radio button option label"
               htmlFor={`${buttonsName}_option_${i}`}
+              data-testid={`radio-label-${i}`}
             >
               {option}
             </label>
